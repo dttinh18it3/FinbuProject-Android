@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#E0E0E0"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/tvAppName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="Finbu"
+        android:textColor="@color/colorYoutube"
+        android:textSize="65sp"
+        android:textStyle="bold|italic" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="serif"
+            android:text="Đăng nhập"
+            android:textColor="@color/colorYoutubeDark"
+            android:textSize="25sp"
+            android:textStyle="italic" />
+
+        <Button
+            android:id="@+id/btnRegistration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ripple_effect_btn_registration"
+            android:drawableStart="@drawable/icons8_add_user_male_24px"
+            android:padding="5dp"
+            android:text="Đăng kí ngay"
+            android:textColor="@color/white"
+            android:visibility="visible" />
+    </LinearLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/EmailLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvLogin"
+            android:layout_centerHorizontal="true"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textPersonName" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/passwordLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/EmailLayout"
+        app:passwordToggleEnabled="true">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Mật khẩu"
+            android:inputType="textPassword"
+            android:textStyle="italic" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/ripple_effect_btn_login"
+        android:drawableStart="@drawable/icons8_login_30px_2"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="Đăng nhập"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/tvOr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnLogin"
+        android:padding="10dp"
+        android:fontFamily="@font/aladin"
+        android:gravity="center"
+        android:text="Hoặc"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="italic" />
+
+    <Button
+        android:id="@+id/btnLoginWithFacebook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ripple_effect_btn_login_with_facebook"
+        android:drawableStart="@drawable/icons8_facebook_30px_2"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="Đăng nhập bằng tài khoản facebook"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/btnLoginWithGmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ripple_effect_btn_login_with_gmail"
+        android:drawableStart="@drawable/icons8_google_24px_3"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="Đăng nhập bằng tài khoản gmail"
+        android:textColor="@color/colorYoutube" />
+
+</LinearLayout>

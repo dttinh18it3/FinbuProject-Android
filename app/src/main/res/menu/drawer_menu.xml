@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="Trang chủ" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_contacts_black_24dp"
+            android:title="Hồ sơ cá nhân" />
+        <item
+            android:id="@+id/nav_notification"
+            android:icon="@drawable/ic_notifications_black_24dp"
+            android:title="Thông báo" />
+        <item
+            android:id="@+id/nav_message"
+            android:icon="@drawable/ic_message_black_24dp"
+            android:title="Tin nhắn" />
+        <item
+            android:id="@+id/nav_phone"
+            android:icon="@drawable/ic_local_phone_black_24dp"
+            android:title="Điện thoại" />
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:title="Cài đặt" />
+    </group>
+    <item tools:ignore="MenuTitle">
+        <menu>
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/icons8_logout_rounded_left_24px"
+                android:title="Đăng xuất" />
+        </menu>
+    </item>
+</menu>

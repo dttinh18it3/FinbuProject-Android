@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "304894484661",
+    "firebase_url": "https://finbuproject.firebaseio.com",
+    "project_id": "finbuproject",
+    "storage_bucket": "finbuproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:304894484661:android:fbc95f104bb609f6f65efc",
+        "android_client_info": {
+          "package_name": "com.example.finbuproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "304894484661-m5nprbuqa048ec9j8ql4tl4pbsne23j1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.finbuproject",
+            "certificate_hash": "9acbe91d1e0a886a496d730ebcc489ed2060083a"
+          }
+        },
+        {
+          "client_id": "304894484661-grpkeud87pkj3mucukjq8e6lsn9hbb3v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkOXzglqtD1PcANOOyh4hsq8OCMZeTdeA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "304894484661-grpkeud87pkj3mucukjq8e6lsn9hbb3v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

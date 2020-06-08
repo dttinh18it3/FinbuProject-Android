@@ -9,10 +9,16 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawerLayout;
+//    TextView tv_user_name, tv_user_email;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,11 +26,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.navigation_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        setHeaderNavigation();
 
+        navigationView.setNavigationItemSelectedListener(this);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
@@ -33,12 +39,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
         navigationView.setCheckedItem(R.id.nav_home);
         }
+
     }
+
+    //   set name $ email for header navigation
+    public void setHeaderNavigation() {
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(R.layout.navigation_header,
+                (ViewGroup) findViewById(R.id.navigation_view));
+        TextView tv_user_name = view.findViewById(R.id.tv_user_name);
+        TextView tv_user_email = view.findViewById(R.id.tv_user_email);
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        if(bundle != null) {
+            tv_user_name.setText(bundle.getString("user_firstname") + " " + bundle.getString("user_name"));
+            tv_user_email.setText(bundle.getString("user_email"));
+        }
+    }
+// set title for actionbar
     public void SetActionBarTitle(String title) {
         getSupportActionBar().setTitle(title);
     }
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        Intent intent_main_activity = getIntent();
+        Bundle bundle = intent_main_activity.getExtras();
         switch (menuItem.getItemId()) {
             case R.id.nav_home:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
@@ -56,12 +81,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new NotificationFragment()).commit();
                 break;
             case R.id.nav_setting:
-                Intent intent = new Intent(MainActivity.this, SettingActivity.class);
-                startActivity(intent);
+                Intent intent_setting = new Intent(MainActivity.this, SettingActivity.class);
+                startActivity(intent_setting);
                 break;
             case R.id.nav_logout:
-                intent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
+                Intent intent_login = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent_login);
+                finish();
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);

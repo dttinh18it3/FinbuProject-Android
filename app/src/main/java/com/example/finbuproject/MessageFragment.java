@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -35,9 +36,11 @@ public class MessageFragment extends Fragment {
 
         usersList = new ArrayList<>();
 
+
         userAdapter = new UserAdapter(MessageFragment.this.getActivity(), usersList);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MessageFragment.this.getActivity());
         rv_users.setLayoutManager(layoutManager);
+        rv_users.addItemDecoration(new DividerItemDecoration(MessageFragment.this.getActivity(), LinearLayoutManager.VERTICAL));
         rv_users.setAdapter(userAdapter);
 
         listUsers();
@@ -45,8 +48,12 @@ public class MessageFragment extends Fragment {
     }
 
     private void listUsers() {
+//        LEO
 //        String url = "http://192.168.43.130/Finbu/public/api/users";
-        String url = "http://192.168.42.12/Finbu/public/api/users";
+//        KING lEO
+//        String url = "http://192.168.1.100/Finbu/public/api/users";
+//        PhuongVyCafe
+        String url = "http://192.168.31.20/Finbu/public/api/users";
         Ion.with(MessageFragment.this)
                 .load(url)
                 .asJsonArray()
@@ -62,17 +69,17 @@ public class MessageFragment extends Fragment {
                                 u.setGender(us.get("Gender").getAsInt());
 //                                u.setUser_DoB(us.get("User_DoB").getAsString());
                                 u.setCellphone(us.get("Cellphone").getAsString());
-                                u.setAddress(us.get("Address").getAsString());
+//                                u.setAddress(us.get("Address").getAsString());
                                 u.setEmail(us.get("Email").getAsString());
                                 u.setPassword(us.get("Password").getAsString());
 //                                u.setRegis_Date(us.get("Regis_Date").getAsString());
 //                                System.out.println(u.getUser_ID());
                                 usersList.add(u);
                             }
-
                             userAdapter.notifyDataSetChanged();
                         } catch(Exception error) {
-                            Toast.makeText(MessageFragment.this.getActivity(), "Error", Toast.LENGTH_SHORT).show();
+                            System.out.println(error);
+                            Toast.makeText(MessageFragment.this.getActivity(), "Errorrrrrrrrrrr", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

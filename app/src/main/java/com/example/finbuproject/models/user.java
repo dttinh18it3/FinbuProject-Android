@@ -5,6 +5,7 @@ import java.sql.Date;
 public class user {
     private int User_ID;
     private String User_Name;
+    private String User_Firstname;
     private int Gender;
     private Date User_DoB;
     private String Cellphone;
@@ -12,6 +13,14 @@ public class user {
     private String Email;
     private String Password;
     private Date Regis_Date;
+
+    public String getUser_Firstname() {
+        return User_Firstname;
+    }
+
+    public void setUser_Firstname(String user_Firstname) {
+        User_Firstname = user_Firstname;
+    }
 
     public int getUser_ID() {
         return User_ID;

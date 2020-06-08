@@ -19,13 +19,12 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     List<user> usersList;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tv_user_name;
+        TextView tv_users_name;
         Button btn_edit, btn_delete;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
-            tv_user_name = itemView.findViewById(R.id.tv_user_name);
+            tv_users_name = itemView.findViewById(R.id.tv_users_name);
             btn_edit = itemView.findViewById(R.id.btn_edit);
             btn_delete = itemView.findViewById(R.id.btn_delete);
         }
@@ -34,7 +33,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     public UserAdapter(Context context1, List<user> usersList1) {
         this.context = context1;
         this.usersList = usersList1;
-
     }
 
     @NonNull
@@ -46,8 +44,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        user u = usersList.get(i);
-        viewHolder.tv_user_name.setText(u.getUser_Name());
+        final user u = usersList.get(i);
+        viewHolder.tv_users_name.setText(u.getUser_Name());
     }
 
     @Override

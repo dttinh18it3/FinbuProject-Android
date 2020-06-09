@@ -9,25 +9,39 @@
     android:padding="10dp"
     tools:context=".RegistrationActivity">
 
-    <TextView
-        android:id="@+id/tvAppName"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="cursive"
-        android:gravity="center"
-        android:padding="5dp"
-        android:text="Finbu"
-        android:textColor="@color/colorYoutube"
-        android:textSize="50sp"
-        android:textStyle="bold|italic" />
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:src="@drawable/ic_baseline_arrow_back_36"
+            android:layout_centerVertical="true"
+            android:onClick="backToLogin"/>
+        <TextView
+            android:id="@+id/tvAppName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="cursive"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Finbu"
+            android:textColor="@color/colorYoutube"
+            android:textSize="60sp"
+            android:textStyle="bold|italic" />
+    </RelativeLayout>
+
+
     <TextView
         android:id="@+id/tvLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="serif"
         android:text="Đăng ký"
-        android:textColor="@color/colorYoutubeDark"
-        android:textSize="20sp"
+        android:textColor="@color/colorYoutubeLight"
+        android:textSize="25sp"
         android:textStyle="italic" />
 
     <LinearLayout
@@ -207,4 +221,5 @@
         android:padding="5dp"
         android:text="ĐĂNG KÝ"
         android:textColor="@color/white" />
+
 </LinearLayout>

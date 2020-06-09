@@ -3,6 +3,7 @@ package com.example.finbuproject;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -21,6 +22,8 @@ import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 
 import java.util.Calendar;
+
+import static com.example.finbuproject.MainActivity.url_api;
 
 public class RegistrationActivity extends AppCompatActivity {
     DatePickerDialog date_picker_dialog;
@@ -112,7 +115,7 @@ public class RegistrationActivity extends AppCompatActivity {
                             });
                     alertDialog.show();
                 } else {
-                    LoginValidation(et_first_name.getText().toString(), et_name.getText().toString(), String.valueOf(gender), et_DoB.getText().toString(),
+                    RegistrationValidation(et_first_name.getText().toString(), et_name.getText().toString(), String.valueOf(gender), et_DoB.getText().toString(),
                             et_cellphone.getText().toString(), et_email.getText().toString(), et_password.getText().toString());
                 }
             }
@@ -143,11 +146,8 @@ public class RegistrationActivity extends AppCompatActivity {
         return gender;
     }
 
-    private void LoginValidation(String first_name, String name, String gender, String DoB, String cellphone, String email, String password) {
-//        LEO
-//        String url = "http://192.168.43.130/Finbu/public/api/users";
-        //        KING lEO
-        String url = "http://192.168.1.100/Finbu/public/api/users";
+    private void RegistrationValidation(String first_name, String name, String gender, String DoB, String cellphone, String email, String password) {
+        String url = url_api + "/users";
         System.out.println(first_name);
         System.out.println(name);
         System.out.println(gender);
@@ -173,7 +173,18 @@ public class RegistrationActivity extends AppCompatActivity {
                         try {
                             String rs = result.get("insert").getAsString();
                             if (rs.equals("OK")) {
-                                Toast.makeText(RegistrationActivity.this, "Đăng ký thành công!", Toast.LENGTH_SHORT).show();
+                                AlertDialog alertDialog = new AlertDialog.Builder(RegistrationActivity.this).create();
+                                alertDialog.setTitle("Chúc mừng!");
+                                alertDialog.setMessage("Bạn đã đăng kí tài khoản thành công!");
+                                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Đăng nhập ngay!", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
+                                                startActivity(intent);
+                                                finish();
+                                            }
+                                        });
+                                alertDialog.show();
                             }
                             else Toast.makeText(RegistrationActivity.this, rs, Toast.LENGTH_SHORT).show();
 
@@ -183,5 +194,11 @@ public class RegistrationActivity extends AppCompatActivity {
                     }
                 });
 
+    }
+
+    public void backToLogin(View view) {
+        Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

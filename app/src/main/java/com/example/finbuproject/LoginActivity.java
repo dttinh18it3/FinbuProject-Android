@@ -13,6 +13,8 @@ import com.google.gson.JsonObject;
 import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 
+import static com.example.finbuproject.MainActivity.url_api;
+
 public class LoginActivity extends AppCompatActivity {
     private EditText et_login_email, et_login_password;
     private Button btnLogin,btnRegistration, btnLoginWithFacebook, btnLoginWithGmail;
@@ -66,12 +68,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void LoginValidation(String email, final String password) {
-        //        KING lEO
-//        String url = "http://192.168.1.100/Finbu/public/api/user-login/" + email;
-// LEO
-//        String url = "http://192.168.43.130/Finbu/public/api/user-login/" + email;
-        //        PhuongVyCafe
-        String url = "http://192.168.31.20/Finbu/public/api/user-login/" + email;
+        String url = url_api + "/user-login/" + email;
         System.out.println(url);
         Ion.with(LoginActivity.this)
                 .load(url)

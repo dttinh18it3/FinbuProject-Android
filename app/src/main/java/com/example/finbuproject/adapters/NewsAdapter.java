@@ -16,6 +16,8 @@ import com.koushikdutta.ion.Ion;
 
 import java.util.List;
 
+import static com.example.finbuproject.MainActivity.url_api;
+
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     Context context;
     List<NewsModel> newsList;
@@ -42,10 +44,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder viewHolder, int i) {
         final NewsModel news = newsList.get(i);
-        //        PhuongVyCafe
-        String url = "http://192.168.31.20/Finbu/public/api/users/" + news.getUser_ID();
-//        String url = "http://192.168.1.100/Finbu/public/api/users/" + news.getUser_ID();
-        System.out.println("url user  " + url);
+        String url = url_api + "/users/" + news.getUser_ID();
         Ion.with(context)
                 .load(url)
                 .asJsonObject()

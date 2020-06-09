@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    public static String url_api = "http://192.168.1.39/Finbuproject/public/api";
     private DrawerLayout drawerLayout;
 //    TextView tv_user_name, tv_user_email;
 

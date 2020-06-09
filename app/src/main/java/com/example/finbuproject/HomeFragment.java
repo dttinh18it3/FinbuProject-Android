@@ -22,6 +22,8 @@ import com.koushikdutta.ion.Ion;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.finbuproject.MainActivity.url_api;
+
 public class HomeFragment extends Fragment {
 
     NewsAdapter news_adapter;
@@ -49,12 +51,7 @@ public class HomeFragment extends Fragment {
 
 
     private void listUsers() {
-//        LEO
-//        String url = "http://192.168.43.130/Finbu/public/api/home";
-//        KING lEO
-//        String url = "http://192.168.1.100/Finbu/public/api/home";
-//        PhuongVyCafe
-        String url = "http://192.168.31.20/Finbu/public/api/home";
+        String url = url_api + "/home";
         Ion.with(HomeFragment.this.getActivity())
                 .load(url)
                 .asJsonArray()

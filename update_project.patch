@@ -1,0 +1,15 @@
+Index: app/src/main/java/com/example/finbuproject/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/finbuproject/MainActivity.java	(revision 5da0f0fa81ba98d1f671766da0c67661f2a140ed)
++++ app/src/main/java/com/example/finbuproject/MainActivity.java	(date 1591716824674)
+@@ -25,6 +25,7 @@
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_main);
+ 
++
+         Toolbar toolbar = findViewById(R.id.toolbar);
+         setSupportActionBar(toolbar);
+         drawerLayout = findViewById(R.id.drawer_layout);

@@ -1,207 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.card.MaterialCardView android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    android:padding="7dp"
-    android:layout_marginBottom="20dp"
-    android:orientation="vertical">
+    app:cardCornerRadius="0dp"
+    app:cardElevation="7dp"
+    app:cardPreventCornerOverlap="false"
+    android:layout_marginBottom="15dp"
+    app:cardBackgroundColor="@color/white"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        
-        <ImageView
-            android:id="@+id/img_avatar"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@mipmap/ic_launcher_round"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"/>
+        android:padding="10dp"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp"
-            android:layout_weight="1">
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tv_fullname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:textColor="@color/black"/>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/user_avatar"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/a"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_weight="1">
 
                 <TextView
-                    android:id="@+id/upload_time"
+                    android:id="@+id/tv_fullname"
+                    android:text="Fullname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textSize="15sp"
-                    android:paddingEnd="30dp"
-                    android:textColor="@color/black"
-                    android:text="2 giờ"/>
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/upload_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingEnd="30dp"
+                        android:text="Time"
+                        android:textColor="#4A4A4A"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Công khai"
+                        android:textColor="#4A4A4A"
+                        android:textSize="15sp" />
+                </LinearLayout>
+            </LinearLayout>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_more_vert_black_30dp"
+                android:background="?android:attr/selectableItemBackground"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_caption"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/black"/>
+
+        <ImageView
+            android:layout_marginTop="10dp"
+            android:id="@+id/img_news"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="196dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
                     android:textColor="@color/black"
-                    android:text="Công khai"/>
+                    android:text="Thích "
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tv_amount_like"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="196dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="right">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:textColor="@color/black"
+                    android:text="Chia sẻ "
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="18sp" />
             </LinearLayout>
         </LinearLayout>
 
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/tv_caption"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textColor="@color/black"/>
-
-    <ImageView
-        android:layout_marginTop="10dp"
-        android:id="@+id/img_news"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:scaleType="fitCenter"
-        android:src="@drawable/h_avengers"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="5dp"
+            android:background="#616161"/>
         <LinearLayout
-            android:layout_width="196dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <ImageView
-                android:id="@+id/icon_like"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_thumb_up_24px" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="18"
-                android:textSize="18sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="right">
+            android:layout_marginTop="5dp"
+            android:padding="0dp"
+            android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/icon_comment"
+            <ImageButton
+                android:id="@+id/btn_like"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="?android:attr/selectableItemBackground"
                 android:scaleType="fitCenter"
-                android:src="@drawable/ic_comment_24px"/>
+                android:src="@drawable/ic_favorite_border_black_30dp"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="18"
-                android:textSize="18sp"/>
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:gravity="center">
-
-            <ImageView
-                android:id="@+id/icon_btn_like"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_outline_thumb_up_24px"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Thích"
-                android:textSize="18sp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:gravity="center">
-
-            <ImageView
+            <ImageButton
                 android:id="@+id/icon_btn_comment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="?android:attr/selectableItemBackground"
                 android:scaleType="fitCenter"
-                android:src="@drawable/ic_outline_comment_24px"/>
+                android:src="@drawable/ic_mode_comment_black_30dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bình luận"
-                android:textSize="18sp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:gravity="center">
-
-            <ImageView
+            <ImageButton
                 android:id="@+id/icon_btn_share"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?android:attr/selectableItemBackground"
+                android:gravity="center"
                 android:scaleType="fitCenter"
-                android:src="@drawable/ic_share_black_24dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Chia sẻ"
-                android:textSize="18sp"/>
+                android:src="@drawable/ic_share_black_30dp" />
         </LinearLayout>
+
+
+
     </LinearLayout>
-
-
-
-</LinearLayout>
+</android.support.design.card.MaterialCardView>

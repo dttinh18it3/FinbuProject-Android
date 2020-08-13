@@ -1,7 +1,9 @@
 package com.example.finbuproject;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +20,7 @@ import static com.example.finbuproject.MainActivity.url_api;
 public class LoginActivity extends AppCompatActivity {
     private EditText et_login_email, et_login_password;
     private Button btnLogin,btnRegistration, btnLoginWithFacebook, btnLoginWithGmail;
+    private SharedPreferences userSharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,12 +82,15 @@ public class LoginActivity extends AppCompatActivity {
                         try {
                             if (result.get("Password").getAsString().equals(password)) {
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                Bundle bundle = new Bundle();
-                                bundle.putInt("user_id", result.get("User_ID").getAsInt());
-                                bundle.putString("user_firstname", result.get("User_Firstname").getAsString());
-                                bundle.putString("user_name", result.get("User_Name").getAsString());
-                                bundle.putString("user_email", result.get("Email").getAsString());
-                                intent.putExtras(bundle);
+
+                                userSharedPreferences = getApplicationContext().getSharedPreferences("user_info", Context.MODE_PRIVATE);
+                                SharedPreferences.Editor user_editor = userSharedPreferences.edit();
+                                user_editor.putInt("user_id", result.get("User_ID").getAsInt());
+                                user_editor.putString("user_firstname", result.get("User_Firstname").getAsString());
+                                user_editor.putString("user_name", result.get("User_Name").getAsString());
+                                user_editor.putString("user_email", result.get("Email").getAsString());
+                                user_editor.apply();
+
                                 startActivity(intent);
                                 finish();
                             } else {

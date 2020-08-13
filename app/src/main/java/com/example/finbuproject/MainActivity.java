@@ -1,107 +1,62 @@
 package com.example.finbuproject;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    public static String url_api = "http://192.168.1.39/Finbuproject/public/api";
-    private DrawerLayout drawerLayout;
-//    TextView tv_user_name, tv_user_email;
+import com.example.finbuproject.ui.BottomNavigationBehavior;
+
+public class MainActivity extends AppCompatActivity {
+    public static String url_project = "http://192.168.43.130/Finbuproject/";
+    public static String url_api = url_project+ "public/api";
+    public static String url_image_storage = url_project+ "storage/app/uploads/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        drawerLayout = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.navigation_view);
-        setHeaderNavigation();
-
-        navigationView.setNavigationItemSelectedListener(this);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+//        Hide/show bottom navigation
+        CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) navigation.getLayoutParams();
+        layoutParams.setBehavior(new BottomNavigationBehavior());
 
         if (savedInstanceState == null) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
-        navigationView.setCheckedItem(R.id.nav_home);
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new HomeFragment()).commit();
         }
-
     }
 
-    //   set name $ email for header navigation
-    public void setHeaderNavigation() {
-        LayoutInflater inflater = getLayoutInflater();
-        View view = inflater.inflate(R.layout.navigation_header,
-                (ViewGroup) findViewById(R.id.navigation_view));
-        TextView tv_user_name = view.findViewById(R.id.tv_user_name);
-        TextView tv_user_email = view.findViewById(R.id.tv_user_email);
-        Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
-        if(bundle != null) {
-            tv_user_name.setText(bundle.getString("user_firstname") + " " + bundle.getString("user_name"));
-            tv_user_email.setText(bundle.getString("user_email"));
-        }
-    }
-// set title for actionbar
-    public void SetActionBarTitle(String title) {
-        getSupportActionBar().setTitle(title);
-    }
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        Intent intent_main_activity = getIntent();
-        Bundle bundle = intent_main_activity.getExtras();
-        switch (menuItem.getItemId()) {
-            case R.id.nav_home:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
-                break;
-            case R.id.nav_profile:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProfileFragment()).commit();
-                break;
-            case R.id.nav_message:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MessageFragment()).commit();
-                break;
-            case R.id.nav_phone:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new PhoneFragment()).commit();
-                break;
-            case R.id.nav_notification:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new NotificationFragment()).commit();
-                break;
-            case R.id.nav_setting:
-                Intent intent_setting = new Intent(MainActivity.this, SettingActivity.class);
-                startActivity(intent_setting);
-                break;
-            case R.id.nav_logout:
-                Intent intent_login = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent_login);
-                finish();
-                break;
-        }
-        drawerLayout.closeDrawer(GravityCompat.START);
-        return true;
-    }
 
-    @Override
-    public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            Fragment fragment;
+            if(item.getItemId() == R.id.nav_home) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new HomeFragment()).commit();
+            }
+            if(item.getItemId() == R.id.nav_notification) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new NotificationFragment()).commit();
+            }
+            if(item.getItemId() == R.id.nav_message) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new MessageFragment()).commit();
+            }
+            if(item.getItemId() == R.id.nav_profile) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new ProfileFragment()).commit();
+            }
+            if(item.getItemId() == R.id.nav_menu) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new PhoneFragment()).commit();
+//                Intent intent_setting = new Intent(MainActivity.this, SettingActivity.class);
+//                startActivity(intent_setting);
+            }
+            return true;
         }
-    }
+    };
+
 }

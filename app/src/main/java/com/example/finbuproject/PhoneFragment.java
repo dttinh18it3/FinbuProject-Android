@@ -12,7 +12,6 @@ public class PhoneFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ((MainActivity)getActivity()).SetActionBarTitle("Điện thoại");
         return inflater.inflate(R.layout.fragment_phone, container, false);
     }
 }

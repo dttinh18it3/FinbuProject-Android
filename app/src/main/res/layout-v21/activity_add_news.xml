@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".AddNewsActivity"
+    android:background="@color/white"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/user_infomation_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/user_avatar"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/a" />
+
+            <TextView
+                android:id="@+id/tv_user_fullname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:padding="5dp"
+                android:text="full name"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="3dp"
+                android:onClick="btncancel"
+                android:src="@drawable/ic_close_white_36dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:layout_below="@+id/user_infomation_layout"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="bottom"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:onClick="chooseImage"
+                    android:padding="3dp"
+                    android:src="@drawable/ic_add_photo_alternate_black_36dp" />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:src="@drawable/ic_add_location_alt_black_36dp" />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:src="@drawable/ic_sentiment_very_satisfied_black_36dp" />
+            </LinearLayout>
+            <Button
+                android:id="@+id/btn_upload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ĐĂNG"
+                android:onClick="UploadNews"
+                android:textColor="#cd201f"
+                android:drawableTop="@drawable/ic_publish_black_36dp"
+                android:background="?android:attr/selectableItemBackground"/>
+        </LinearLayout>
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/et_news"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tools"
+            android:background="@null"
+            android:gravity="top|left"
+            android:hint="Thêm bài viết mới..."
+            android:inputType="textMultiLine"
+            android:maxLines="30"
+            android:overScrollMode="always"
+            android:padding="10dp"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="vertical"
+            android:scrollHorizontally="false"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="20sp"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890\n "
+            android:textStyle="italic" />
+
+        <ImageView
+            android:padding="10dp"
+            android:id="@+id/image_news"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/et_news"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"/>
+
+    </RelativeLayout>
+</android.support.v4.widget.NestedScrollView>

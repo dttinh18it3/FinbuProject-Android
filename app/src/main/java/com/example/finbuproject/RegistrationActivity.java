@@ -2,6 +2,7 @@ package com.example.finbuproject;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -156,6 +157,8 @@ public class RegistrationActivity extends AppCompatActivity {
         System.out.println(email);
         System.out.println("p" + password);
 
+        final ProgressDialog dialogProcessing = ProgressDialog.show(RegistrationActivity.this, "Đăng kí tài khoản!",
+                "Đang xử lý!\nVui lòng chờ...", true);
 
         Ion.with(RegistrationActivity.this)
                 .load("POST", url)
@@ -184,6 +187,7 @@ public class RegistrationActivity extends AppCompatActivity {
                                                 finish();
                                             }
                                         });
+                                dialogProcessing.dismiss();
                                 alertDialog.show();
                             }
                             else Toast.makeText(RegistrationActivity.this, rs, Toast.LENGTH_SHORT).show();

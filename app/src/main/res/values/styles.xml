@@ -3,8 +3,8 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorYoutube</item>
-        <item name="colorPrimaryDark">@color/colorYoutubeDark</item>
+        <item name="colorPrimary">@color/colorYoutubeLight</item>
+        <item name="colorPrimaryDark">@color/colorYoutubeLight</item>
         <item name="colorAccent">@color/colorYoutubeLight</item>
     </style>
     <style name="AppTheme.NoActionBar">

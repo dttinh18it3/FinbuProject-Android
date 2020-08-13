@@ -27,7 +27,7 @@
             android:fontFamily="cursive"
             android:gravity="center"
             android:padding="10dp"
-            android:text="Finbu"
+            android:text="Olga"
             android:textColor="@color/colorYoutube"
             android:textSize="60sp"
             android:textStyle="bold|italic" />

@@ -29,7 +29,6 @@ public class MessageFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ((MainActivity)getActivity()).SetActionBarTitle("Tin nhắn");
         View view = inflater.inflate(R.layout.fragment_message, container, false);
 
         rv_users = view.findViewById(R.id.rv_users);
